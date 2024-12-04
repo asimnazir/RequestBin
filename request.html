@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST Request Form</title>
+    <style>
+        input[type="text"], textarea {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send POST Request</h1>
+	<h2>Login before making request to below URL</h2>
+    <form id="postForm" target="_blank">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" value="" required><br><br>
+
+        <label for="jsonData">JSON Data:</label><br>
+        <textarea id="jsonData" name="jsonData" rows="10" cols="50" required></textarea><br><br>
+
+        <button type="button" onclick="sendPostRequest()">Send POST Request</button>
+    </form>
+
+    <script>
+        function sendPostRequest() {
+            var url = document.getElementById('url').value;
+            var jsonData = document.getElementById('jsonData').value;
+
+            // Create a form
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = url;
+            //form.target = '_blank'; // Open in a new tab
+
+            // Add JSON data as a hidden input
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'jsonData';
+            input.value = jsonData;
+            form.appendChild(input);
+
+            // Append the form to the body and submit it
+            document.body.appendChild(form);
+            form.submit();
+
+            // Remove the form after submission
+            document.body.removeChild(form);
+        }
+    </script>
+</body>
+</html>
