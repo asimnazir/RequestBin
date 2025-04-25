@@ -18,16 +18,25 @@
     <h2>Login before making request to below URL</h2>
     <form id="postForm" target="_blank">
         <label for="url">URL:</label>
-        <input type="text" id="url" name="url" value="" required><br><br>
+        <input type="text" id="url" name="url" value="https://services.acc.exactshared.dev/docs/EssGateway.aspx?_Division_=159843&administrationId=159843" required><br><br>
 
         <label for="Action">Action:</label>
-        <input id="Action" name="Action" required><br><br>
+        <input id="Action" name="Action" value="4" required><br><br>
         
         <label for="Origin">Origin:</label>
-        <input id="Origin" name="Origin" required><br><br>
+        <input id="Origin" name="Origin" value="0" required><br><br>
 
         <label for="Data">Data:</label><br>
-        <textarea id="Data" name="Data" rows="10" cols="50" required></textarea><br><br>
+        <textarea id="Data" name="Data" rows="10" cols="50" required>{
+    "feature": 1,
+    "possibleFeature": 1,
+    "bankAccount": "BE25631486168482",
+    "companyName": "1 demo veniceBe",
+    "companyEmail": "asim.nazir+venice1@exact.com",
+    "cocNumber": "",
+    "vatNumber": "BE0767137861",
+    "igwClientId": "Venice"
+}</textarea><br><br>
 
         <button type="button" onclick="sendPostRequest()">Send POST Request</button>
         <button type="button" onclick="generateEncodedUrl()">Get Encoded URL</button><br><br>
